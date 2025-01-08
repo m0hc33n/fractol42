@@ -16,8 +16,10 @@
 // SETS DEFINES
 # define JULIA_STR "julia"
 # define MANDELBORT_STR "mandelbrot"
-# define JULIA 5
-# define MANDELBROT 10
+# define BURNINGSHIP_STR "burningship"
+# define JULIA 0
+# define MANDELBROT 1
+# define BURNINGSHIP 2
 
 # define BLACK 0x00000000
 # define WHITE 0xFFFFFFFF
@@ -70,10 +72,10 @@ bool	init_fractol(t_fractol *p_fractol);
 void	terminate_fractol(t_fractol *p_fractol, char *msg, int msg_len);
 void	julia(t_fractol *p_fracto, int x, int y);
 void	mandelbrot(t_fractol *p_fractol, int x, int y);
+void	burningship(t_fractol *p_fractol, int x, int y);
 
 // FRACTOL
 void	fractol(t_fractol *p_fractol);
-void	refractol(t_fractol *p_fractol);
 
 // IMG
 void	put_pixel_to_img(t_fractol *p_fractol, int x, int y, int color);
@@ -88,6 +90,7 @@ double		scale(double unscaled, double new_min, double new_max,
 			double old_min, double old_max);
 t_complex	complex_sqrt(t_complex a);
 t_complex	complex_sum(t_complex a, t_complex b);
+double		fabs(double val);
 
 
 // ARGS

@@ -2,10 +2,12 @@
 
 static void	calc_fractal(t_fractol *p_fractol, int x, int y)
 {
-	if (p_fractol->set == 5)
+	if (p_fractol->set == JULIA)
 		julia(p_fractol, x, y);
-	else if (p_fractol->set == 10)
+	else if (p_fractol->set == MANDELBROT)
 	 	mandelbrot(p_fractol, x, y);
+	else if (p_fractol->set == BURNINGSHIP)
+		burningship(p_fractol, x, y);
 }
 
 void	fractol(t_fractol *p_fractol)

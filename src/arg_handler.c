@@ -25,6 +25,8 @@ static bool	get_set(char *arg, int *set)
 		*set = JULIA;
 	else if (cmp(MANDELBORT_STR, arg))
 		*set = MANDELBROT;
+	else if (cmp(BURNINGSHIP_STR, arg))
+		*set = BURNINGSHIP;
 	else
 		return (false);
 	return (true);
