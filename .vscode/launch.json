@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/a.out",
-			"args": ["julia", "-0.8", "0.156"],
+			"args": ["julia"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],

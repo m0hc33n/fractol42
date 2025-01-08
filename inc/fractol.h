@@ -9,8 +9,8 @@
 # include <X11/keysym.h>
 
 // WINDOWS DEIFNES
-# define WINDOW_HEIGHT 900
-# define WINDOW_WIDTH 900
+# define WINDOW_HEIGHT 400
+# define WINDOW_WIDTH 400
 # define TITLE "FRACTOL"
 
 // SETS DEFINES
@@ -19,9 +19,8 @@
 # define JULIA 5
 # define MANDELBROT 10
 
-# define MAX_ITERATIONS 4242
-# define BLACK 0x000000
-# define WHITE 0xFFFFFF
+# define BLACK 0x00000000
+# define WHITE 0xFFFFFFFF
 # define INDIGO 0x4B0082
 
 // ERRORS
@@ -33,6 +32,8 @@
 // EVENTS
 # define DESTROYNOTIFY 17
 # define STRUCTURENOTIFYMASK (1L<<17)
+# define MOUSE -1
+# define KEY -2
 
 typedef struct s_complex
 {
@@ -72,6 +73,7 @@ void	mandelbrot(t_fractol *p_fractol, int x, int y);
 
 // FRACTOL
 void	fractol(t_fractol *p_fractol);
+void	refractol(t_fractol *p_fractol);
 
 // IMG
 void	put_pixel_to_img(t_fractol *p_fractol, int x, int y, int color);

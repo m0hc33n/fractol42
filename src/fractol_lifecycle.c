@@ -5,7 +5,7 @@ static	void	init_struct(t_fractol *p_fractol)
 	p_fractol->shift_x = 0.0;
 	p_fractol->shift_y = 0.0;
 	p_fractol->zoom  = 1.0;
-	p_fractol->iterations = 1111;
+	p_fractol->iterations = 42;
 }
 
 static void	init_hooks(t_fractol *p_fractol)
@@ -28,8 +28,6 @@ bool	init_fractol(t_fractol *p_fractol)
 		return (false);
 	p_fractol->img.addr = mlx_get_data_addr(p_fractol->img.img, &p_fractol->img.bits_per_pixel,
 	 					&p_fractol->img.line_length, &p_fractol->img.endian);
-	if (!p_fractol->img.addr)
-		return (false);
 	init_struct(p_fractol);
 	init_hooks(p_fractol);
 	return (true);

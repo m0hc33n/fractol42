@@ -17,7 +17,7 @@ void	mandelbrot(t_fractol *p_fractol, int x, int y)
 		z = complex_sum(complex_sqrt(z), c);
 		if (z.xr * z.xr + z.yi * z.yi > 4.0)
 		{
-			color = scale(iter, BLACK, WHITE, 0, iter);
+			color = scale(iter, BLACK, WHITE, 0, p_fractol->iterations);
 			put_pixel_to_img(p_fractol, x, y, color);
 			return ;
 		}
