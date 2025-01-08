@@ -9,15 +9,15 @@ void	mandelbrot(t_fractol *p_fractol, int x, int y)
 
 	z.xr = 0;
 	z.yi = 0;
-	c.xr = scale((double)x, -2, 2, 0, WINDOW_WIDTH);
-	c.yi = scale((double)y, 2, -2, 0, WINDOW_HEIGHT);
+	c.xr = (scale((double)x, -2, 2, 0, WINDOW_WIDTH) * p_fractol->zoom) + p_fractol->shift_x;
+	c.yi = (scale((double)y, 2, -2, 0, WINDOW_HEIGHT) * p_fractol->zoom) + p_fractol->shift_y;
 	iter = 0;
-	while (iter < MAX_ITERATIONS)
+	while (iter < p_fractol->iterations)
 	{
 		z = complex_sum(complex_sqrt(z), c);
 		if (z.xr * z.xr + z.yi * z.yi > 4.0)
 		{
-			color = scale(iter, BLACK, WHITE, 0, MAX_ITERATIONS);
+			color = scale(iter, BLACK, WHITE, 0, iter);
 			put_pixel_to_img(p_fractol, x, y, color);
 			return ;
 		}

@@ -16,5 +16,5 @@ int main(int ac, char **av)
 	}
 	fractol(p_fractol);
 	mlx_loop(p_fractol->p_mlx);
-	terminate_fractol(p_fractol, DONE, DONELEN);
+	return (0);
 }

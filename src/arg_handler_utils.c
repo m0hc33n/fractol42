@@ -53,5 +53,6 @@ bool	get_julia_cnst(char *str, double *nb)
 	}
 	if (!get_fraction(str, nb))
 		return (false);
+	*nb *= sign;
 	return (true);
 }

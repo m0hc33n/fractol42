@@ -11,6 +11,7 @@ FRACTOL_HDR = inc/fractol.h
 FRACTOL_SRC = src/main.c src/arg_handler.c src/arg_handler_utils.c \
 			  src/fractol.c src/fractol_lifecycle.c \
 			  src/julia.c src/mandelbrot.c \
+			  src/hooks.c \
 			  src/image_utils.c src/math_utils.c
 FRACTOL = fractol
 

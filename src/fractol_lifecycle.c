@@ -1,5 +1,20 @@
 #include "../inc/fractol.h"
 
+static	void	init_struct(t_fractol *p_fractol)
+{
+	p_fractol->shift_x = 0.0;
+	p_fractol->shift_y = 0.0;
+	p_fractol->zoom  = 1.0;
+	p_fractol->iterations = 1111;
+}
+
+static void	init_hooks(t_fractol *p_fractol)
+{
+	mlx_key_hook(p_fractol->p_win, key_hook, p_fractol);
+	mlx_mouse_hook(p_fractol->p_win, mouse_hook, p_fractol);
+	mlx_hook(p_fractol->p_win, DESTROYNOTIFY, STRUCTURENOTIFYMASK, x_exit, p_fractol);
+}
+
 bool	init_fractol(t_fractol *p_fractol)
 {
 	p_fractol->p_mlx = mlx_init();
@@ -15,7 +30,8 @@ bool	init_fractol(t_fractol *p_fractol)
 	 					&p_fractol->img.line_length, &p_fractol->img.endian);
 	if (!p_fractol->img.addr)
 		return (false);
-	//HOOKS TODO;
+	init_struct(p_fractol);
+	init_hooks(p_fractol);
 	return (true);
 }
 
@@ -36,4 +52,7 @@ void terminate_fractol(t_fractol *p_fractol, char *msg, int msg_len)
 		free(p_fractol);
 	}
 	write(STDOUT_FILENO, msg, msg_len);
+	if (msg)
+		exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }

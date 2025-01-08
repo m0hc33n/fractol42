@@ -5,6 +5,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <stdint.h>
+# include <X11/keysym.h>
 
 // WINDOWS DEIFNES
 # define WINDOW_HEIGHT 900
@@ -13,37 +15,24 @@
 
 // SETS DEFINES
 # define JULIA_STR "julia"
-# define MANDELBORT_STR "mandelbort"
+# define MANDELBORT_STR "mandelbrot"
 # define JULIA 5
 # define MANDELBROT 10
 
 # define MAX_ITERATIONS 4242
 # define BLACK 0x000000
-# define WHITE 0xffffff
-# define RED     0xFF0000
-# define GREEN   0x00FF00
-# define BLUE    0x0000FF
-# define YELLOW  0xFFFF00
-# define CYAN    0x00FFFF
-# define MAGENTA 0xFF00FF
-#define LAVENDER   0xE6E6FA
-#define SALMON     0xFA8072
-#define TURQUOISE  0x40E0D0
-#define ORCHID     0xDA70D6
-#define CORAL      0xFF7F50
-#define GOLDENROD  0xDAA520
-#define DEEPSKYBLUE 0x00BFFF
-#define INDIGO     0x4B0082
-#define TEAL       0x008080
-#define OLIVE      0x808000
+# define WHITE 0xFFFFFF
+# define INDIGO 0x4B0082
 
-
-  
 // ERRORS
 # define INITFAIL "[!!] CANNOT INITIALIZE FRACTOL\n"
 # define INITFAILEN 31
 # define DONE "[++] DONE\n"
 # define DONELEN 10
+
+// EVENTS
+# define DESTROYNOTIFY 17
+# define STRUCTURENOTIFYMASK (1L<<17)
 
 typedef struct s_complex
 {
@@ -67,6 +56,10 @@ typedef struct s_fractol
 	void		*p_win;
 	t_img		img;
 	int			set;
+	double		shift_x;
+	double		shift_y;
+	double		zoom;
+	int			iterations;
 	double		julia_ci;
 	double		julia_cr;
 }	t_fractol;
@@ -83,8 +76,13 @@ void	fractol(t_fractol *p_fractol);
 // IMG
 void	put_pixel_to_img(t_fractol *p_fractol, int x, int y, int color);
 
+// HOOKS
+int		x_exit(t_fractol *p_fractol);
+int		key_hook(int keycode, t_fractol *p_fractol);
+int		mouse_hook(int keycode, int x, int y ,t_fractol *p_fractol);
+
 // MATH
-double	scale(double unscaled, double new_min, double new_max,
+double		scale(double unscaled, double new_min, double new_max,
 			double old_min, double old_max);
 t_complex	complex_sqrt(t_complex a);
 t_complex	complex_sum(t_complex a, t_complex b);
