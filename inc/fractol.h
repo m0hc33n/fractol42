@@ -21,9 +21,9 @@
 # define MANDELBROT 1
 # define BURNINGSHIP 2
 
+// COLORS
 # define BLACK 0x00000000
 # define WHITE 0xFFFFFFFF
-# define INDIGO 0x4B0082
 
 // ERRORS
 # define INITFAIL "[!!] CANNOT INITIALIZE FRACTOL\n"
@@ -36,6 +36,12 @@
 # define STRUCTURENOTIFYMASK (1L<<17)
 # define MOUSE -1
 # define KEY -2
+
+// ARROWS
+# define LEFT 'L'
+# define RIGHT 'R'
+# define DOWN 'D'
+# define UP 'U'
 
 typedef struct s_complex
 {
@@ -62,17 +68,22 @@ typedef struct s_fractol
 	double		shift_x;
 	double		shift_y;
 	double		zoom;
+	double		x_min;
+	double		x_max;
+	double		y_min;
+	double		y_max;
 	int			iterations;
 	double		julia_ci;
 	double		julia_cr;
+	int			color;
 }	t_fractol;
 
 // FRACTOL MANAGEMENT
 bool	init_fractol(t_fractol *p_fractol);
 void	terminate_fractol(t_fractol *p_fractol, char *msg, int msg_len);
-void	julia(t_fractol *p_fracto, int x, int y);
-void	mandelbrot(t_fractol *p_fractol, int x, int y);
-void	burningship(t_fractol *p_fractol, int x, int y);
+int		julia(t_fractol *p_fracto, t_complex p);
+int		mandelbrot(t_fractol *p_fractol, t_complex p);
+int		burningship(t_fractol *p_fractol, t_complex p);
 
 // FRACTOL
 void	fractol(t_fractol *p_fractol);

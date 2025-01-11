@@ -18,7 +18,7 @@ FRACTOL = fractol
 OBJ = $(patsubst src/%.c,$(OBJD)/%.o,$(FRACTOL_SRC))
 OBJD = obj
 
-all = $(FRACTOL)
+all : $(FRACTOL)
 
 $(FRACTOL) : $(OBJD) $(OBJ) $(MLX) 
 	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) -o $@

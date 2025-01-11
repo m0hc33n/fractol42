@@ -8,7 +8,7 @@ int main(int ac, char **av)
 	if (!p_fractol)
 		return (false);
 	if (!arg_handler(ac, av, p_fractol))
-		return (terminate_fractol(p_fractol, NULL, 0), usage(), -2);
+		return (usage(), terminate_fractol(p_fractol, NULL, 0), -2);
 	if (!init_fractol(p_fractol))
 	{
 		terminate_fractol(p_fractol, INITFAIL, INITFAILEN);

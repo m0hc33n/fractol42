@@ -5,7 +5,12 @@ static	void	init_struct(t_fractol *p_fractol)
 	p_fractol->shift_x = 0.0;
 	p_fractol->shift_y = 0.0;
 	p_fractol->zoom  = 1.0;
-	p_fractol->iterations = 42;
+	p_fractol->x_min = -2.0;
+	p_fractol->x_max = 2.0;
+	p_fractol->y_min = 2.0;
+	p_fractol->y_max = -2.0;
+	p_fractol->iterations = 60;
+	p_fractol->color = 0;
 }
 
 static void	init_hooks(t_fractol *p_fractol)
