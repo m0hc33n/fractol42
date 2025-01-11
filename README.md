@@ -1,2 +1,1 @@
 # fractol42
-FRACTALS MAGIC
