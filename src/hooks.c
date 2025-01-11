@@ -30,34 +30,33 @@ void	zoom(t_fractol *p_fractol, double zoom)
 
 }
 
-static void	shift(t_fractol *f, double distance, char direction)
+static void	shift(t_fractol *p_fractol, double distance, char direction)
 {
 	double	center_r;
 	double	center_i;
 
-	center_r = f->x_max - f->x_min;
-	center_i = f->y_max - f->y_min;
+	center_r = p_fractol->x_max - p_fractol->x_min;
+	center_i = p_fractol->y_max - p_fractol->y_min;
 	if (direction == RIGHT)
 	{
-		f->x_min +=  center_r * distance;
-		f->x_max +=  center_r * distance;
+		p_fractol->x_min +=  center_r * distance;
+		p_fractol->x_max +=  center_r * distance;
 	}
 	else if (direction == LEFT)
 	{
-		f->x_min -=  center_r * distance;
-		f->x_max -=  center_r * distance;
+		p_fractol->x_min -=  center_r * distance;
+		p_fractol->x_max -=  center_r * distance;
 	}
 	else if (direction == UP)
 	{
-		f->y_min +=  center_i * distance;
-		f->y_max +=  center_i * distance;
+		p_fractol->y_min +=  center_i * distance;
+		p_fractol->y_max +=  center_i * distance;
 	}
 	else if (direction == DOWN)
 	{
-		f->y_min -=  center_i * distance;
-		f->y_max -=  center_i * distance;
+		p_fractol->y_min -=  center_i * distance;
+		p_fractol->y_max -=  center_i * distance;
 	}
-
 }
 
 int	key_hook(int keycode, t_fractol *p_fractol)
@@ -67,13 +66,13 @@ int	key_hook(int keycode, t_fractol *p_fractol)
 	if (keycode == XK_Escape)
 		terminate_fractol(p_fractol, NULL, 0);
 	if (keycode == XK_Left)
-		shift(p_fractol, 0.05, LEFT);
+		shift(p_fractol, SHIFT_FACTOR, LEFT);
 	else if (keycode == XK_Right)
-		shift(p_fractol, 0.05, RIGHT);	
+		shift(p_fractol, SHIFT_FACTOR, RIGHT);	
 	else if (keycode == XK_Up)
-		shift(p_fractol, 0.05, DOWN);
+		shift(p_fractol, SHIFT_FACTOR, DOWN);
 	else if (keycode == XK_Down)
-		shift(p_fractol, 0.05, UP);
+		shift(p_fractol, SHIFT_FACTOR, UP);
 	else if (keycode == XK_0)
 	{
 		if (p_fractol->iterations < INT32_MAX - 50)

@@ -36,6 +36,7 @@
 # define STRUCTURENOTIFYMASK (1L<<17)
 # define MOUSE -1
 # define KEY -2
+# define SHIFT_FACTOR 0.05
 
 // ARROWS
 # define LEFT 'L'

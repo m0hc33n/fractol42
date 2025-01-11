@@ -56,8 +56,8 @@ bool arg_handler(int ac, char **av, t_fractol *p_fractol)
 		return (false);
 	if (p_fractol->set == JULIA && ac == 2)
 	{
-		p_fractol->julia_cr = 0.0;
-		p_fractol->julia_ci = 0.8;
+		p_fractol->julia_cr = -0.8;
+		p_fractol->julia_ci = 0.156;
 	}
 	return (true);
 }
@@ -74,7 +74,7 @@ void	usage()
             	"\n"
             	"Examples:\n"
             	"\t./fractol julia\n"
-				"\t./fractol julia −0.8 0.156\n"
+				"\t./fractol julia -0.8 0.156\n"
 				"\t./fracotl mandelbrot\n"
-				"\t./fractol burningship\n", 357);
+				"\t./fractol burningship\n", 355);
 }
