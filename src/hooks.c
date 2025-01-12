@@ -11,7 +11,7 @@ static bool	is_code_valid(int keycode, int event)
 		if (keycode != XK_Escape && keycode != XK_Left
 			&& keycode != XK_Right && keycode != XK_Up
 			&& keycode != XK_Down && keycode != XK_minus
-			&& keycode != XK_0 && keycode != XK_r)
+			&& keycode != XK_space && keycode != XK_r)
 			return (false);
 	return (true);
 }
@@ -73,7 +73,7 @@ int	key_hook(int keycode, t_fractol *p_fractol)
 		shift(p_fractol, SHIFT_FACTOR, DOWN);
 	else if (keycode == XK_Down)
 		shift(p_fractol, SHIFT_FACTOR, UP);
-	else if (keycode == XK_0)
+	else if (keycode == XK_space)
 	{
 		if (p_fractol->iterations < INT32_MAX - 50)
 			p_fractol->iterations += 50;
