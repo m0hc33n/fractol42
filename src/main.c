@@ -3,12 +3,12 @@
 static void	print_control(void)
 {
 	write(STDOUT_FILENO,
-			"\n\t\t#### CONTROL MENU #####\n\n"
-			"\t\t[ARROWS KEYS]	: Shift image\n"
-			"\t\t[SPACE]		: Shift Color\n"
-			"\t\t[SCROLL-UP]	: Zoom OUT\n"
-			"\t\t[SCROLL-DW]	: Zoom IN\n",
-			132);
+		"\n\t\t#### CONTROL MENU #####\n\n"
+		"\t\t[ARROWS KEYS]	: Shift image\n"
+		"\t\t[SPACE]		: Shift Color\n"
+		"\t\t[SCROLL-UP]	: Zoom OUT\n"
+		"\t\t[SCROLL-DW]	: Zoom IN\n",
+		132);
 }
 
 int	main(int ac, char **av)

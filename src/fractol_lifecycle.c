@@ -17,7 +17,7 @@ static void	init_hooks(t_fractol *p_fractol)
 {
 	mlx_key_hook(p_fractol->p_win, key_hook, p_fractol);
 	mlx_mouse_hook(p_fractol->p_win, mouse_hook, p_fractol);
-	mlx_hook(p_fractol->p_win, DESTROYNOTIFY, STRUCTURENOTIFYMASK, x_exit,
+	mlx_hook(p_fractol->p_win, DESTROYNOTIFY, 1L << 17, x_exit,
 		p_fractol);
 }
 

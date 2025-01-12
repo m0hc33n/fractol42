@@ -32,8 +32,7 @@ static bool	get_set(char *arg, int *set)
 	return (true);
 }
 
-
-bool arg_handler(int ac, char **av, t_fractol *p_fractol)
+bool	arg_handler(int ac, char **av, t_fractol *p_fractol)
 {
 	if (ac == 1)
 		return (false);
@@ -62,9 +61,10 @@ bool arg_handler(int ac, char **av, t_fractol *p_fractol)
 	return (true);
 }
 
-void	usage()
+void	usage(void)
 {
-	write(STDOUT_FILENO,"Usage:\n" 
+	write(STDOUT_FILENO,
+		"Usage:\n"
 		"\t./fractol <set> [julia_zr] [julia_zi]\n"
 		"\n"
 		"Options:\n"
@@ -77,5 +77,6 @@ void	usage()
 		"\t./fractol julia\n"
 		"\t./fractol julia -0.8 0.156\n"
 		"\t./fracotl mandelbrot\n"
-		"\t./fractol burningship\n", 352);
+		"\t./fractol burningship\n",
+		352);
 }
