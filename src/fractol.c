@@ -6,10 +6,10 @@ static void	draw_pixel(t_fractol *p_fractol, int x, int y)
 	int			color;
 	t_complex	p;
 
-	p.xr = scale((double)x, p_fractol->x_min, p_fractol->x_max, 0,
-			WINDOW_WIDTH);
-	p.yi = scale((double)y, p_fractol->y_min, p_fractol->y_max, 0,
-			WINDOW_HEIGHT);
+	p.xr = (p_fractol->x_max - p_fractol->x_min)
+		* (double)x / WINDOW_WIDTH + p_fractol->x_min;
+	p.yi = (p_fractol->y_max - p_fractol->y_min)
+		* (double)y / WINDOW_HEIGHT + p_fractol->y_min;
 	if (p_fractol->set == JULIA)
 		iter = julia(p_fractol, p);
 	else if (p_fractol->set == MANDELBROT)
@@ -19,7 +19,7 @@ static void	draw_pixel(t_fractol *p_fractol, int x, int y)
 	if (iter == p_fractol->iterations)
 		color = p_fractol->color;
 	else
-		color = scale(iter, BLACK, WHITE, 0, p_fractol->iterations);
+		color = WHITE * (double)iter / p_fractol->iterations;
 	put_pixel_to_img(p_fractol, x, y, color);
 }
 

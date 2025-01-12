@@ -106,9 +106,3 @@ int	mouse_hook(int keycode, int x, int y, t_fractol *p_fractol)
 	fractol(p_fractol);
 	return (0);
 }
-
-int	x_exit(t_fractol *p_fractol)
-{
-	terminate_fractol(p_fractol, NULL, 0);
-	return (0);
-}

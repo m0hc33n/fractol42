@@ -1,5 +1,11 @@
 #include "../inc/fractol.h"
 
+int	x_exit(t_fractol *p_fractol)
+{
+	terminate_fractol(p_fractol, NULL, 0);
+	return (0);
+}
+
 static void	init_struct(t_fractol *p_fractol)
 {
 	p_fractol->shift_x = 0.0;

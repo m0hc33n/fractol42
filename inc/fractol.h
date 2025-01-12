@@ -98,8 +98,6 @@ int			key_hook(int keycode, t_fractol *p_fractol);
 int			mouse_hook(int keycode, int x, int y, t_fractol *p_fractol);
 
 // MATH
-double		scale(double unscaled, double new_min, double new_max,
-				double old_min, double old_max);
 t_complex	complex_sqrt(t_complex a);
 t_complex	complex_sum(t_complex a, t_complex b);
 double		fabs(double val);
