@@ -65,16 +65,17 @@ bool arg_handler(int ac, char **av, t_fractol *p_fractol)
 void	usage()
 {
 	write(STDOUT_FILENO,"Usage:\n" 
-        		"\t./fractol <set> [julia_zr] [julia_zi]\n"
-            	"\n"
-            	"Options:\n"
-            	"  <set>			(Required) Specify the set type: julia, mandelbrot or burningship\n"
-            	"  [julia_cr]		(Optional) julia Z real part (Default -0.8)\n"
-            	"  [julia_ci]		(Optional) julia Z imaginary part (Default 0.156)\n"
-            	"\n"
-            	"Examples:\n"
-            	"\t./fractol julia\n"
-				"\t./fractol julia -0.8 0.156\n"
-				"\t./fracotl mandelbrot\n"
-				"\t./fractol burningship\n", 355);
+		"\t./fractol <set> [julia_zr] [julia_zi]\n"
+		"\n"
+		"Options:\n"
+		"  <set>		(Required) Specify the set type"
+		": julia, mandelbrot or burningship\n"
+		"  [julia_cr]	(Optional) julia Z real part (Default -0.8)\n"
+		"  [julia_ci]	(Optional) julia Z imaginary part (Default 0.156)\n"
+		"\n"
+		"Examples:\n"
+		"\t./fractol julia\n"
+		"\t./fractol julia -0.8 0.156\n"
+		"\t./fracotl mandelbrot\n"
+		"\t./fractol burningship\n", 352);
 }

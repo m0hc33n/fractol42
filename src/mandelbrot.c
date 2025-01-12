@@ -12,7 +12,7 @@ int	mandelbrot(t_fractol *p_fractol, t_complex c)
 	{
 		z = complex_sum(complex_sqrt(z), c);
 		if (z.xr * z.xr + z.yi * z.yi > 4.0)
-			break;
+			break ;
 		iter++;
 	}
 	return (iter);

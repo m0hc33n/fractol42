@@ -1,4 +1,4 @@
-# include "../inc/fractol.h"
+#include "../inc/fractol.h"
 
 int	burningship(t_fractol *p_fractol, t_complex c)
 {
@@ -15,7 +15,6 @@ int	burningship(t_fractol *p_fractol, t_complex c)
 		z = complex_sum(complex_sqrt(z), c);
 		if (z.xr * z.xr + z.yi * z.yi > 4.0)
 			break ;
-
 		iter++;
 	}
 	return (iter);

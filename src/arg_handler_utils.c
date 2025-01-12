@@ -14,7 +14,7 @@ static bool	is_space(int c)
 
 static bool	get_fraction(char *str, double *nb)
 {
-	double div;
+	double	div;
 
 	div = 0.1;
 	if (*str == '.')
@@ -34,7 +34,7 @@ static bool	get_fraction(char *str, double *nb)
 
 bool	get_julia_cnst(char *str, double *nb)
 {
-	int		sign;
+	int	sign;
 
 	*nb = 0;
 	sign = 1;
