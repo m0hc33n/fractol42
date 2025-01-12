@@ -16,46 +16,46 @@ static bool	is_code_valid(int keycode, int event)
 	return (true);
 }
 
-void	zoom(t_fractol *p_fractol, double zoom)
+void zoom(t_fractol *p_fractol, double zoom)
 {
-	double	center_r;
-	double	center_i;
+    double center_r;
+    double center_i;
 
-	center_r = p_fractol->x_min - p_fractol->x_max;
-	center_i = p_fractol->y_max - p_fractol->y_min;
-	p_fractol->x_max = p_fractol->x_max + (center_r - zoom * center_r) / 2;
-	p_fractol->x_min = p_fractol->x_max + zoom * center_r;
-	p_fractol->y_min = p_fractol->y_min + (center_i - zoom * center_i) / 2;
-	p_fractol->y_max = p_fractol->y_min + zoom * center_i;
+    center_r = (p_fractol->x_max + p_fractol->x_min) / 2;
+    center_i = (p_fractol->y_max + p_fractol->y_min) / 2;
 
+    p_fractol->x_max = center_r + (p_fractol->x_max - center_r) * zoom;
+    p_fractol->x_min = center_r + (p_fractol->x_min - center_r) * zoom;
+    p_fractol->y_max = center_i + (p_fractol->y_max - center_i) * zoom;
+    p_fractol->y_min = center_i + (p_fractol->y_min - center_i) * zoom;
 }
 
-static void	shift(t_fractol *p_fractol, double distance, char direction)
+static void	shift(t_fractol *p_fractol, double scale_factor, char direction)
 {
-	double	center_r;
-	double	center_i;
+	double	width;
+	double	height;
 
-	center_r = p_fractol->x_max - p_fractol->x_min;
-	center_i = p_fractol->y_max - p_fractol->y_min;
+	width = p_fractol->x_max - p_fractol->x_min;
+	height = p_fractol->y_max - p_fractol->y_min;
 	if (direction == RIGHT)
 	{
-		p_fractol->x_min +=  center_r * distance;
-		p_fractol->x_max +=  center_r * distance;
+		p_fractol->x_min +=  width * scale_factor;
+		p_fractol->x_max +=  width * scale_factor;
 	}
 	else if (direction == LEFT)
 	{
-		p_fractol->x_min -=  center_r * distance;
-		p_fractol->x_max -=  center_r * distance;
+		p_fractol->x_min -=  width * scale_factor;
+		p_fractol->x_max -=  width * scale_factor;
 	}
 	else if (direction == UP)
 	{
-		p_fractol->y_min +=  center_i * distance;
-		p_fractol->y_max +=  center_i * distance;
+		p_fractol->y_min +=  height * scale_factor;
+		p_fractol->y_max +=  height * scale_factor;
 	}
 	else if (direction == DOWN)
 	{
-		p_fractol->y_min -=  center_i * distance;
-		p_fractol->y_max -=  center_i * distance;
+		p_fractol->y_min -=  height * scale_factor;
+		p_fractol->y_max -=  height * scale_factor;
 	}
 }
 
@@ -90,10 +90,10 @@ int	mouse_hook(int keycode, int x, int y ,t_fractol *p_fractol)
 	if (!is_code_valid(keycode, MOUSE))
 	 	return (0);
 	if (keycode == 5)
-		zoom(p_fractol, 1.5);
+		zoom(p_fractol, ZOOMOUT_FACTOR);
 	else if (keycode == 4)
 	{
-		zoom(p_fractol, 0.5);
+		zoom(p_fractol, ZOOMIN_FACTOR);
 		x -= WINDOW_WIDTH / 2;
 		y -= WINDOW_HEIGHT / 2;
 		if (x < 0)

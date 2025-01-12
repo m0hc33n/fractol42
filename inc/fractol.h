@@ -37,6 +37,8 @@
 # define MOUSE -1
 # define KEY -2
 # define SHIFT_FACTOR 0.05
+# define ZOOMIN_FACTOR 0.5
+# define ZOOMOUT_FACTOR 1.5
 
 // ARROWS
 # define LEFT 'L'
