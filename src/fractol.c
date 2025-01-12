@@ -27,7 +27,7 @@ void	fractol(t_fractol *p_fractol)
 	int			y;
 
 	mlx_clear_window(p_fractol->p_mlx, p_fractol->p_win);
-		y = -1;
+	y = -1;
 	while (++y < WINDOW_HEIGHT)
 	{
 		x = -1;

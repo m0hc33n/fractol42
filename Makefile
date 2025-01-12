@@ -20,7 +20,7 @@ OBJD = obj
 
 all : $(FRACTOL)
 
-$(FRACTOL) : $(OBJD) $(OBJ) $(MLX) 
+$(FRACTOL) : $(MLX) $(OBJD) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLXFLAGS) -o $@
 
 $(MLX) :

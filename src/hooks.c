@@ -90,7 +90,7 @@ int	mouse_hook(int keycode, int x, int y ,t_fractol *p_fractol)
 	if (!is_code_valid(keycode, MOUSE))
 	 	return (0);
 	if (keycode == 5)
-		zoom(p_fractol, 2);
+		zoom(p_fractol, 1.5);
 	else if (keycode == 4)
 	{
 		zoom(p_fractol, 0.5);

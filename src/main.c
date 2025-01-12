@@ -25,6 +25,7 @@ int main(int ac, char **av)
 		return (-1);
 	}
 	fractol(p_fractol);
+	print_control();
 	mlx_loop(p_fractol->p_mlx);
 	return (0);
 }
